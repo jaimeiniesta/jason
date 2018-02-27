@@ -63,6 +63,7 @@ defmodule Jason.DecodeTest do
     assert parse!("{}") == %{}
     assert parse!(~s({"foo": "bar"})) == %{"foo" => "bar"}
     assert parse!(~s({"foo"  : "bar"})) == %{"foo" => "bar"}
+    assert parse!(~s({"foo": "bar\nbaz"})) == %{"foo" => "bar\nbaz"}
 
     expected = %{"foo" => "bar", "baz" => "quux"}
     assert parse!(~s({"foo": "bar", "baz": "quux"})) == expected
